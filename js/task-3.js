@@ -8,6 +8,6 @@ function showName(event) {
     if (target.value.trim() == "") {
         span.textContent = value;
     } else {
-        span.textContent = target.value;
+        span.textContent = target.value.trim();
     }
 }

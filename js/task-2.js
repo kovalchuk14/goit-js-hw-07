@@ -30,13 +30,15 @@ const images = [
 
 function MainTask() {
   const list = document.querySelector(".gallery");
+  let txt = "";
   images.map((img) => {
     const curElem = document.createElement("img");
     curElem.src = img.url;
     curElem.alt = img.alt;
     curElem.classList.add("common-img");
-    list.append(curElem);
+    txt += `<li><img alt="${img.alt}" src="${img.url}" class="common-img""></li>`;
   });
+  list.innerHTML += txt;
 }
 
 MainTask();
