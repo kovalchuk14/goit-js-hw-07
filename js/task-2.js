@@ -1,4 +1,3 @@
-//const { createElement } = require("react");
 
 const images = [
   {
@@ -30,15 +29,20 @@ const images = [
 
 function MainTask() {
   const list = document.querySelector(".gallery");
-  let txt = "";
-  images.map((img) => {
-    const curElem = document.createElement("img");
-    curElem.src = img.url;
-    curElem.alt = img.alt;
-    curElem.classList.add("common-img");
-    txt += `<li><img alt="${img.alt}" src="${img.url}" class="common-img""></li>`;
+  let items = [];
+  images.forEach((img) => {
+    const li = document.createElement("li");
+    const picture = document.createElement("img");
+
+    picture.alt = img.alt;
+    picture.src = img.url;
+    picture.classList.add("common-img")
+
+    li.append(picture);
+    items.push(li);
   });
-  list.innerHTML += txt;
+  list.append(...items);
+
 }
 
 MainTask();
